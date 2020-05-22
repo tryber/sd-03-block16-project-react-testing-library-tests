@@ -3,18 +3,13 @@ import PropTypes from 'prop-types';
 
 import './button.css';
 
-const Button = ({
-  className,
-  children,
-  disabled,
-  onClick,
-}) => (
+const Button = ({ className, children, dataTestId, disabled, onClick }) => (
   <button
     onClick={onClick}
     className={`button-text ${className}`}
     disabled={disabled}
-    type="button"
-  >
+    data-testid={dataTestId}
+    type="button">
     {children}
   </button>
 );
@@ -22,6 +17,7 @@ const Button = ({
 Button.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
+  dataTestId: PropTypes.string,
   disabled: PropTypes.bool,
   onClick: PropTypes.func.isRequired,
 };
@@ -29,6 +25,7 @@ Button.propTypes = {
 Button.defaultProps = {
   children: null,
   className: '',
+  dataTestId: undefined,
   disabled: false,
 };
 
